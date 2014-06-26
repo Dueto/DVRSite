@@ -28,6 +28,7 @@ class mailSender
 		global $MAILER_LANGUAGE;
 
 		$this->mailer = new PHPMailer();
+		$this->mailer->CharSet = 'UTF-8';		
 
 		$this->user = $MAILING_LIST["user"];
 		$this->password = $MAILING_LIST["password"];
@@ -63,11 +64,11 @@ class mailSender
 		$this->mailer->Body = "Новая заявка от: " . $name . " с.т. " . $telephone;
 		if(!$this->mailer->send())
 		{
-			echo 'Unsuccess.';
+			echo 'unsuccess';
 		}
 		else
 		{
-			echo 'Success.';
+			echo 'success';
 		}
 	}
 

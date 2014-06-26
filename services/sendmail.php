@@ -11,7 +11,7 @@ if(isset($_GET['name']) && isset($_GET['telephone']))
 }
 else
 {
-	echo "Вы должны ввести ваше имя и ваш телефон.";
+	echo "wronginput";
 }
 
 

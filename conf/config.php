@@ -1,5 +1,5 @@
 <?php
-date_default_timezone_set('Etc/UTC');
+date_default_timezone_set('UTC');
 
 
 $PROJECT_NAME = "DVR";
@@ -27,7 +27,7 @@ $MAILING_LIST =
 		"from" => "dvrholder@gmail.com",
 		"fromName" => "DVR sender",
 		"address" => "dvrholder@gmail.com",
-		"subject" => "New appointment from "
+		"subject" => "Новая заявка от "
 	);
 
 
