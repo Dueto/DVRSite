@@ -35,9 +35,9 @@ class sqlConnection
                                          array(\PDO::ATTR_PERSISTENT => true,
                                          \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION)
                                         );                
-            if($this->connection === NULL)
+            if($this->connection === null)
             {
-                return NULL;
+                return null;
             }
         }
         catch(\PDOException $ex)
@@ -52,7 +52,7 @@ class sqlConnection
         $sqlStatement = $this->formInsertStatement();          
         try
         {  
-            if($this->connection !== NULL)
+            if($this->connection !== null)
             {
               $handler = $this->connection->prepare($sqlStatement);  
 
@@ -67,11 +67,12 @@ class sqlConnection
             }
             else
             {
-                return NULL;
+                return null;
             }
         }
         catch(\PDOException $ex)
         {   
+            $this->connection = null;            
             throw $ex;  
         }        
     }
@@ -100,6 +101,11 @@ class sqlConnection
                     .substr($charid,20,12);
             return $uuid;
         }
+    }
+
+    function dispose()
+    {
+        $this->connection = null;
     }
 
 }
