@@ -47,7 +47,7 @@ class sqlConnection
           
     }
     
-    function insertClientRecord($name, $phoneNumber, $email = NULL)
+    function insertClientRecord($name, $phoneNumber, $email = NULL, $referrer)
     {   
         $sqlStatement = $this->formInsertStatement();          
         try
@@ -60,6 +60,7 @@ class sqlConnection
               $handler->bindValue(':name', $name, \PDO::PARAM_STR); 
               $handler->bindValue(':phoneNumber', $phoneNumber, \PDO::PARAM_STR); 
               $handler->bindValue(':email', $email, \PDO::PARAM_STR); 
+              $handler->bindValue(':referrer', $referrer, \PDO::PARAM_STR); 
              
               $handler->execute();            
               $handler->closeCursor();                
@@ -79,7 +80,7 @@ class sqlConnection
 
     function formInsertStatement()
     {    
-          return "INSERT INTO `clients` (`id`, `name`, `phoneNumber`, `email`) VALUES (:id, :name, :phoneNumber, :email);";
+          return "INSERT INTO `clients` (`id`, `name`, `phoneNumber`, `email`, `referrer`) VALUES (:id, :name, :phoneNumber, :email, :referrer);";
     }   
 
     function guid()

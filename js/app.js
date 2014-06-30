@@ -16,7 +16,7 @@ $(document).ready(function()
 			return;
 		}
 		$.ajax({
-			url: './services/sendmail.php?name=' + name + '&telephone=' + telephone,
+			url: './services/sendmail.php?name=' + name + '&telephone=' + telephone + '&referrer=' + document.referrer,
 			complete: function(data)
 			{
 				var response = data.responseText;

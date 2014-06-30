@@ -7,6 +7,7 @@ class Request
     var $email = null;
     var $phoneNumber = null;
     var $name = null;
+    var $referrer = null;
 
     function __construct($request)
     {
@@ -15,7 +16,8 @@ class Request
            $this->email = $request["email"];
         }
         $this->phoneNumber = $request["telephone"];
-        $this->name = $request["name"];             
+        $this->name = $request["name"];  
+        $this->referrer = $request["referrer"];           
     }
 
     function processRequest()
@@ -24,8 +26,8 @@ class Request
         {
           $sender = new mailSender(); 
           $connection = new sqlConnection();
-          $sender->sendMail($this->name, $this->phoneNumber);
-          $connection->insertClientRecord($this->name, $this->phoneNumber);
+          $sender->sendMail($this->name, $this->phoneNumber, $this->referrer);
+          $connection->insertClientRecord($this->name, $this->phoneNumber, null ,$this->referrer);
           $connection->dispose();
         }
         catch(\PDOException $ex)
