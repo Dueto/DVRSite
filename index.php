@@ -12,6 +12,5 @@
 Name: <input type="text" id="textboxName" name="fname"><br>
 Telephone: <input type="text" id="textboxTelephone" name="lname"><br>
 <button id="submit">send</button></br>
-
 </body>
 </html>

@@ -27,6 +27,8 @@ $(document).ready(function()
 					case 'unsuccess': alert('Ваша заявка не была обработана, повторите, пожалуйста запрос позже, спасибо!'); // тоэе самое
 					break;
 					case 'wronginput': alert('Данные введены не правильно, попробуйте снова.'); //тоже самое
+					/*default:
+					$(document).html('Возникла ошибка:' + response);*/
 				}
 			}
 			})

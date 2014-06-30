@@ -9,9 +9,10 @@ $DB = array
 (
 	"host" => "localhost",
 	"port" => 3306,
-	"database" => "clients",
-	"user" => "inserter",
-	"password" => "inserter"
+	"database" => "dvr",
+	"table" => "clients",
+	"user" => "root",
+	"password" => "root"
 );
 
 
