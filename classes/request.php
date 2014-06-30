@@ -26,6 +26,7 @@ class Request
           $connection = new sqlConnection();
           $sender->sendMail($this->name, $this->phoneNumber);
           $connection->insertClientRecord($this->name, $this->phoneNumber);
+          $connection->dispose();
         }
         catch(\PDOException $ex)
         {
