@@ -58,10 +58,10 @@ class mailSender
 		$this->mailer->isHTML(false);		
 	}
 
-	function sendMail($name, $telephone)
+	function sendMail($name, $telephone, $referrer)
 	{
-		$this->mailer->Subject = $this->subject . $name;
-		$this->mailer->Body = "Новая заявка от: " . $name . " с.т. " . $telephone;
+		$this->mailer->Subject = $this->subject . $name . ' с.т. ' . $telephone;
+		$this->mailer->Body = "Новая заявка от: " . $name . " с.т. " . $telephone . "\n Пришел из: " . $referrer;
 		if(!$this->mailer->send())
 		{
 			echo 'unsuccess';

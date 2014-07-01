@@ -15,8 +15,9 @@ $(document).ready(function()
 			alert('Пожайлуйста введите номер телефона.'); // встраиваться в хтмл
 			return;
 		}
+		var referrer = document.referrer === '' ? 'url' : document.referrer;
 		$.ajax({
-			url: './services/sendmail.php?name=' + name + '&telephone=' + telephone + '&referrer=' + document.referrer,
+			url: './services/sendmail.php?name=' + name + '&telephone=' + telephone + '&referrer=' + referrer,
 			complete: function(data)
 			{
 				var response = data.responseText;
